@@ -8,6 +8,8 @@ from alien import Alien
 
 from time import sleep
 
+#check for changes
+
 def check_events(stats, button, ai_settings, screen, ship, aliens, bullets, sb):
     """Watch for keyboard and mouse events."""
     for event in pygame.event.get():

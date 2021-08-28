@@ -10,10 +10,31 @@ from time import sleep
 
 #check for changes
 
+def record_highscore(stats, sb):
+    """make record of highscore from previous game"""
+    highscore_filename = "highscore.txt"
+    with open(highscore_filename, "a") as highscore:
+        highscore.write(str(sb.stats.highscore) + "\n")
+
+
+
+def read_highscore():
+    """Read highscore to game"""
+    highscore_filename = "highscore.txt"
+    with open(highscore_filename, "r") as highscore:
+        max_score = 0
+        for score in highscore:
+            num_score = int(score)
+            if num_score > max_score:
+                max_score = num_score
+        return max_score
+
+
 def check_events(stats, button, ai_settings, screen, ship, aliens, bullets, sb):
     """Watch for keyboard and mouse events."""
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            record_highscore(stats, sb)
             sys.exit()
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouse_x, mouse_y = pygame.mouse.get_pos()
@@ -35,6 +56,7 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets, stats, alien
         elif event.key == pygame.K_SPACE:
             fire_bullet(ai_settings, bullets, screen, ship)
         elif event.key == pygame.K_ESCAPE:
+            record_highscore(stats, sb)
             sys.exit()
 
 

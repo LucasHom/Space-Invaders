@@ -1,3 +1,5 @@
+import game_functions as gf
+
 class Gamestats():
     """"Tracks statistics for space invaders game"""
     def __init__(self, ai_settings):
@@ -8,7 +10,8 @@ class Gamestats():
         self.active = False
 
         #Highscore should never be reset
-        self.highscore = 0
+
+        self.highscore = gf.read_highscore()
 
         #level of game
         self.level = 1

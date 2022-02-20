@@ -12,18 +12,18 @@ from time import sleep
 
 def record_highscore(stats, sb):
     """make record of highscore from previous game"""
-    highscore_filename = "highscore.txt"
-    with open(highscore_filename, "a") as highscore:
-        highscore.write(str(sb.stats.highscore) + "\n")
+    highscore_filename = "highscores.txt"
+    with open(highscore_filename, "a") as highscores:
+        highscores.write(str(sb.stats.highscore) + "\n")
 
 
 
 def read_highscore():
     """Read highscore to game"""
-    highscore_filename = "highscore.txt"
-    with open(highscore_filename, "r") as highscore:
+    highscore_filename = "highscores.txt"
+    with open(highscore_filename, "r") as highscores:
         max_score = 0
-        for score in highscore:
+        for score in highscores:
             num_score = int(score)
             if num_score > max_score:
                 max_score = num_score

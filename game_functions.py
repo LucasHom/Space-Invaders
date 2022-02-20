@@ -46,10 +46,10 @@ def check_events(stats, button, ai_settings, screen, ship, aliens, bullets, sb):
             check_keyup_events(ship, event)
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets, stats, aliens, sb):
-        if not stats.active and event.key == pygame.K_SPACE:
-            game_setup(ai_settings, screen, ship, aliens, bullets, stats, sb)
+        # if not stats.active and event.key == pygame.K_SPACE:
+        #     game_setup(ai_settings, screen, ship, aliens, bullets, stats, sb)
 
-        elif event.key == pygame.K_RIGHT:
+        if event.key == pygame.K_RIGHT:
             ship.moving_right = True
         elif event.key == pygame.K_LEFT:
             ship.moving_left = True
@@ -61,13 +61,15 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets, stats, alien
 
 
 def game_setup(ai_settings, screen, ship, aliens, bullets, stats, sb):
+    pygame.mouse.set_visible(False)
     stats.reset_stats()
+    stats.active = True
     sb.prep_score()
-    #sb.prep_highscore()
+    sb.prep_highscore()
     sb.prep_level()
     sb.prep_lives()
-    stats.active = True
-    pygame.mouse.set_visible(False)
+
+
 
     # empty the list of aliens and bullets
     aliens.empty()
@@ -84,6 +86,7 @@ def check_play_button(ai_settings, screen, ship, aliens, bullets, stats, button,
         ai_settings.init_dynamic_settings()
         game_setup(ai_settings, screen, ship, aliens, bullets, stats, sb)
         stats.level = 1
+        print("working!")
 
 
 def check_keyup_events(ship, event):

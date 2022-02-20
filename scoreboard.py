@@ -41,7 +41,7 @@ class Scoreboard():
 
         rounded_score = int(round(self.stats.score, -1))
 
-        score_string = "{:,}".format(rounded_score)
+        score_string = "High Score: {:,}".format(rounded_score)
         self.highscore_image = self.font.render(score_string, True, self.text_color, self.ai_settings.bg_color)
 
         # Displays the score at the top of the screen

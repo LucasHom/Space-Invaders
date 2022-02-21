@@ -1,2 +1,2 @@
-- To install, run `python3 -m pip install -U pygame`
-- To run, run `python3 space_invaders.py`
+- To install, run `python3 -m pip install -U pygame` in your terminal
+- To run, run `python3 space_invaders.py` in the same terminal
